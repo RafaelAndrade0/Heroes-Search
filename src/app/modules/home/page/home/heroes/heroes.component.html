@@ -1,0 +1,40 @@
+<ng-container [ngSwitch]="mode">
+  <ng-container *ngSwitchCase="'box'">
+    <ng-container *ngTemplateOutlet="boxTemplate"> </ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'card'">
+    <ng-container *ngTemplateOutlet="cardTemplate"> </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #cardTemplate>
+  <div class="columns is-multiline">
+    <div class="column is-one-quarter" *ngFor="let item of list">
+      <app-hero-item></app-hero-item>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #boxTemplate>
+  <ng-container *ngIf="heroes">
+    <div class="box" *ngFor="let hero of heroes">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-128x128">
+            <!-- <img [src]="hero.thumbnail.path + '.' + hero.thumbnail.extension" /> -->
+            <img src="https://bulma.io/images/placeholders/256x256.png" />
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>{{ hero.name }}</strong>
+              <br />
+              {{ hero.description }}
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </ng-container>
+</ng-template>

@@ -8,9 +8,10 @@ import { AboutModule } from "./modules/about/about.module";
 import { ContactModule } from "./modules/contact/contact.module";
 import { CoreModule } from "./core/core.module";
 import { SharedModule } from "./shared/shared.module";
+import { NavComponent } from './layout/nav/nav.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NavComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

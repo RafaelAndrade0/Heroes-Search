@@ -1,1 +1,12 @@
-<h1>HOME COMPONENT</h1>
+<!-- <div class="columns">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <h1>HOME COMPONENT</h1>
+    <app-hero-search></app-hero-search>
+  </div>
+</div> -->
+
+<app-hero-search
+  (searchHero)="searchHero($event)"
+  (heroesMode)="changeMode($event)"
+></app-hero-search>
+<app-heroes [mode]="heroesMode" [heroes]="heroes"></app-heroes>
