@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   BASE_ENDPOINT: "https://gateway.marvel.com/",
   PUBLIC_KEY: "a2bf903f5c2595355661fd47404452db",
-  PRIVATE_KEY: "878aa71e9b7fb62d829c51ec8f622bb18c097ae6"
+  PRIVATE_KEY: " " //Your Private key
 };
 
 /*

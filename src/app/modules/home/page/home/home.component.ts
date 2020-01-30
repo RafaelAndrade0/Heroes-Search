@@ -34,27 +34,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  // searchHero(heroName: string) {
-  //   this.loading = true;
-  //   this.heroes = [];
-  //   this.marvelService
-  //     .getCharactersByName(heroName)
-  //     .pipe(
-  //       flatMap((root: RootObject) => root.data.results),
-  //       filter(hero => hero.description !== "")
-  //     )
-  //     .subscribe(hero => {
-  //       this.heroes.push(hero);
-  //       console.log("teste");
-  //     });
-  // }
   searchHero(heroName: string) {
-    this.marvelService
-      .getCharactersByName(heroName)
-      // .pipe(delay(2000))
-      .subscribe(hero => {
-        this.heroes = hero.data.results;
-      });
+    this.marvelService.getCharactersByName(heroName).subscribe(hero => {
+      this.heroes = hero.data.results;
+    });
   }
 
   changeMode(mode: string) {
