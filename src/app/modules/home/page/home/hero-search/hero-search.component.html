@@ -1,7 +1,7 @@
 <div class="notification">
   <form #f="ngForm" (ngSubmit)="formSubmit(f.value)">
-    <div class="field">
-      <p class="control">
+    <div class="field has-addons">
+      <div class="control is-expanded">
         <input
           [ngClass]="{
             'is-danger':
@@ -15,21 +15,18 @@
           #heroName="ngModel"
           required
         />
-      </p>
-      <p
-        *ngIf="heroName.invalid && (heroName.dirty || heroName.touched)"
-        class="help is-danger"
-      >
-        The hero name is required
-      </p>
-    </div>
-    <div class="field">
-      <p class="control">
-        <button [disabled]="f.invalid" type="submit" class="button is-success">
+        <p
+          *ngIf="heroName.invalid && (heroName.dirty || heroName.touched)"
+          class="help is-danger"
+        >
+          The hero name is required
+        </p>
+      </div>
+      <div class="control">
+        <button [disabled]="f.invalid" type="submit" class="button is-danger">
           Search!
         </button>
-      </p>
+      </div>
     </div>
   </form>
-  <!-- <button class="button is-info" (click)="changeMode()">Change</button> -->
 </div>

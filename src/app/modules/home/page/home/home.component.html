@@ -9,4 +9,8 @@
   (searchHero)="searchHero($event)"
   (heroesMode)="changeMode($event)"
 ></app-hero-search>
-<app-heroes [mode]="heroesMode" [heroes]="heroes"></app-heroes>
+<app-heroes
+  [mode]="heroesMode"
+  [heroes]="heroes"
+  [loadingStatus]="loadingStatus"
+></app-heroes>

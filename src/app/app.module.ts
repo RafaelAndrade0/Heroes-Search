@@ -6,9 +6,10 @@ import { AppComponent } from "./app.component";
 import { HomeModule } from "./modules/home/home.module";
 import { AboutModule } from "./modules/about/about.module";
 import { ContactModule } from "./modules/contact/contact.module";
-import { CoreModule } from "./core/core.module";
-import { SharedModule } from "./shared/shared.module";
-import { NavComponent } from './layout/nav/nav.component';
+import { NavComponent } from "./layout/nav/nav.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { LoadingInterceptor } from "./core/interceptor/loading.interceptor";
 
 @NgModule({
   declarations: [AppComponent, NavComponent],
@@ -17,9 +18,16 @@ import { NavComponent } from './layout/nav/nav.component';
     AppRoutingModule,
     HomeModule,
     AboutModule,
-    ContactModule
+    ContactModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

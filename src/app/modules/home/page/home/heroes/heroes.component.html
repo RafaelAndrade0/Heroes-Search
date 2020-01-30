@@ -16,8 +16,9 @@
 </ng-template>
 
 <ng-template #boxTemplate>
-  <ng-container *ngIf="heroes">
-    <div class="box" *ngFor="let hero of heroes">
+  <app-loader></app-loader>
+  <ng-container *ngIf="heroes && !loadingStatus">
+    <div @fadeAnimation class="box" *ngFor="let hero of heroes">
       <article class="media">
         <div class="media-left">
           <figure class="image is-128x128">
